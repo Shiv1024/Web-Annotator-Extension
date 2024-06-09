@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Text Box</title>
+    <style>
+        /* Define the draggable text box styles */
+        .draggable-textbox {
+            position: fixed;
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            border: 2px solid blue;
+            resize: both;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Define the draggable text box element -->
+    <div class="draggable-textbox" id="draggableTextBox" draggable="true">
+        <p>Drag me!</p>
+    </div>
+
+    <script>
+        // Add event listeners to make the text box draggable
+        const draggableTextBox = document.getElementById('draggableTextBox');
+
+        let offsetX = 0;
+        let offsetY = 0;
+        let isDragging = false;
+
+        draggableTextBox.addEventListener('mousedown', startDrag);
+        draggableTextBox.addEventListener('mouseup', endDrag);
+        draggableTextBox.addEventListener('mousemove', drag);
+
+        function startDrag(e) {
+            isDragging = true;
+            offsetX = e.clientX - draggableTextBox.getBoundingClientRect().left;
+            offsetY = e.clientY - draggableTextBox.getBoundingClientRect().top;
+        }
+
+        function endDrag() {
+            isDragging = false;
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                draggableTextBox.style.left = (e.clientX - offsetX) + 'px';
+                draggableTextBox.style.top = (e.clientY - offsetY) + 'px';
+            }
+        }
+    </script>
+</body>
+</html>

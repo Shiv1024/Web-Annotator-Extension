@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Reactjs Extension",
+    "description":"Myreactjs",
+    "version": "1.0.0",
+    "action":{
+      "default_title":"Click Me",
+      "default_popup":"popup.html"
+    },
+    "content_security_policy": {
+    "extension_pages": "script-src 'self' ; object-src 'self'"
+  },
+    "permissions": [
+        "tabs",
+        "bookmarks",
+        "storage",
+        "activeTab",
+        "storage",
+        "scripting",
+         "https://betterprogramming.pub/"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["content.js"]
+        }
+      ],
+    "background": {
+        "service_worker": "background.js"
+      }
+    
+}
