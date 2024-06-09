@@ -28,7 +28,8 @@ Welcome to the Web Annotator extension! This extension allows you to highlight t
 5. **Keyboard Shortcuts**:
    - Press `Ctrl` + `Shift` + `H` to start and stop highlighting.
    - Press `Ctrl` + `Shift` + `P` to add a note.
-
+   
+##Note-Refresh tab to store annotations
 ## Installation
 
 To install the Web Annotator extension, follow these steps:
